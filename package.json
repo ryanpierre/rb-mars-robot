@@ -4,5 +4,11 @@
   "description": "ensuring the safety and success of grid based robots in the year 2079",
   "main": "dist/index.js",
   "author": "Ryan Pierre",
-  "license": "MIT"
+  "license": "MIT",
+  "engines": {
+    "node": ">=16.0.0 <17.0.0"
+  },
+  "dependencies": {
+    "jest": "^29.5.0"
+  }
 }
