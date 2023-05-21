@@ -1,4 +1,10 @@
 node_modules/
+# VSCode settings
 .vscode/
-./**/DS_STORE
-dist/
+
+# Output dir
+./dist/
+
+# MacOS
+./**/.DS_STORE
+.DS_STORE
