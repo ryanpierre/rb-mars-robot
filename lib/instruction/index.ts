@@ -1,4 +1,9 @@
-const VALID_INSTRUCTIONS = ["L", "R", "F"];
+type InstructionSet = Record<string, () => void>;
+const DEFAULT_INSTRUCTION_SET: InstructionSet = {
+  L: () => {},
+  R: () => {},
+  F: () => {},
+};
 
 export class Instruction {
   private _command: string;
@@ -11,8 +16,11 @@ export class Instruction {
     return this._command;
   }
 
-  public static create(input: string) {
-    if (!VALID_INSTRUCTIONS.includes(input)) {
+  public static create(
+    input: string,
+    instructionSet: InstructionSet = DEFAULT_INSTRUCTION_SET
+  ) {
+    if (!Object.keys(instructionSet).includes(input)) {
       throw new Error("Invalid command");
     }
 
