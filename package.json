@@ -1,0 +1,8 @@
+{
+  "name": "rb-mars-robot",
+  "version": "0.0.1",
+  "description": "ensuring the safety and success of grid based robots in the year 2079",
+  "main": "dist/index.js",
+  "author": "Ryan Pierre",
+  "license": "MIT"
+}
