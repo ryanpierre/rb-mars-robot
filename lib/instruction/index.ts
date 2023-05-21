@@ -6,10 +6,10 @@ const DEFAULT_INSTRUCTION_SET: InstructionSet = {
 };
 
 export class Instruction {
-  private _command: string;
+  private _command: () => void;
 
-  private constructor(input: string) {
-    this._command = input;
+  private constructor(command: () => void) {
+    this._command = command;
   }
 
   public get command() {
@@ -24,6 +24,6 @@ export class Instruction {
       throw new Error("Invalid command");
     }
 
-    return new Instruction(input);
+    return new Instruction(instructionSet[input]);
   }
 }
