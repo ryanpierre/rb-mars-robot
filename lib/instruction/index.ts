@@ -1,4 +1,9 @@
 import type { TransformerFunction } from "../transformers";
+import {
+  rotateClockwise,
+  rotateCounterClockwise,
+  moveForward,
+} from "../transformers";
 
 export interface Position {
   x: number;
@@ -9,9 +14,9 @@ export interface Position {
 type InstructionTable = Record<string, TransformerFunction>;
 
 const DEFAULT_INSTRUCTION_TABLE: InstructionTable = {
-  L: (p: Position) => p,
-  R: (p: Position) => p,
-  F: (p: Position) => p,
+  L: rotateCounterClockwise,
+  R: rotateClockwise,
+  F: moveForward,
 };
 
 export class Instruction {
