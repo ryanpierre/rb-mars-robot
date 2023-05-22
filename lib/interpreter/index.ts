@@ -23,4 +23,16 @@ export class Interpreter {
   public static parseInstructions(instructionsString: string) {
     return instructionsString.split("").map((i) => Instruction.create(i));
   }
+
+  public parseInput(inputString: string, lineDelimiter: string = "\n") {
+    const lines = inputString.split(lineDelimiter);
+    const currentLine = lines.reverse().pop();
+    const remaining = lines.reverse();
+
+    if (!currentLine) {
+      throw new Error("Invalid input data");
+    }
+
+    const grid = Interpreter.parseGrid(currentLine);
+  }
 }
