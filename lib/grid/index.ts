@@ -30,6 +30,16 @@ export class Grid {
     return this._scents;
   }
 
+  public addScent(p: Position) {
+    if (
+      !this.scents.some(
+        (scent) => scent.x === p.x && scent.y === p.y && scent.d === p.d
+      )
+    ) {
+      this._scents.push(p);
+    }
+  }
+
   private isAdjacentToScent(scent: Position, x: number, y: number) {
     const availableOffsets = [
       { x: scent.x, y: scent.y + 1 },

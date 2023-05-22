@@ -37,4 +37,20 @@ describe("Grid", () => {
 
     expect(grid.isWithinBoundaries(3, 2)).toEqual(true);
   });
+
+  it("add new scents to the grid", () => {
+    const grid = new Grid(3, 2);
+
+    grid.addScent({ x: 3, y: 2, d: 0 });
+
+    expect(grid.scents).toEqual([{ x: 3, y: 2, d: 0 }]);
+  });
+
+  it("doesn't add duplicate scents to the grid", () => {
+    const grid = new Grid(3, 2, [{ x: 3, y: 2, d: 0 }]);
+
+    grid.addScent({ x: 3, y: 2, d: 0 });
+
+    expect(grid.scents).toEqual([{ x: 3, y: 2, d: 0 }]);
+  });
 });

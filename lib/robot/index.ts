@@ -19,6 +19,11 @@ export class Robot {
     this._isLost = isLost;
   }
 
+  private lost(scent: Position) {
+    this._isLost = true;
+    this._grid.addScent(scent);
+  }
+
   public get position() {
     return this._position;
   }
@@ -46,11 +51,11 @@ export class Robot {
       const { x, y } = proposedPosition;
 
       if (this.grid.validate(x, y)) {
-        this._position = proposedPosition;
-
         if (!this._grid.isWithinBoundaries(x, y)) {
-          this._isLost = true;
+          this.lost(this._position);
         }
+
+        this._position = proposedPosition;
       }
     }
   }

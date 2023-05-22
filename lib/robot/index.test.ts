@@ -60,10 +60,12 @@ describe("Robot", () => {
 
     testGrid.isWithinBoundaries = jest.fn().mockReturnValue(false);
     testGrid.validate = jest.fn().mockReturnValue(true);
+    testGrid.addScent = jest.fn();
 
     robot.action(testInstruction());
 
     expect(testTransformer).toHaveBeenCalledWith({ x: 0, y: 0, d: 0 });
+    expect(testGrid.addScent).toHaveBeenCalledWith({ x: 0, y: 0, d: 0 });
     expect(robot.position).toEqual({ x: 11, y: 10, d: 0 });
     expect(robot.isLost).toEqual(true);
   });
