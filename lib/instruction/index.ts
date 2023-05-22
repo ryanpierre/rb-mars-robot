@@ -1,14 +1,22 @@
-type InstructionSet = Record<string, () => void>;
-const DEFAULT_INSTRUCTION_SET: InstructionSet = {
-  L: () => {},
-  R: () => {},
-  F: () => {},
+interface Position {
+  x: number;
+  y: number;
+  d: number;
+}
+
+type TransformerFunction = (p: Position) => Position;
+type InstructionTable = Record<string, TransformerFunction>;
+
+const DEFAULT_INSTRUCTION_TABLE: InstructionTable = {
+  L: (p: Position) => p,
+  R: (p: Position) => p,
+  F: (p: Position) => p,
 };
 
 export class Instruction {
-  private _command: () => void;
+  private _command: TransformerFunction;
 
-  private constructor(command: () => void) {
+  private constructor(command: TransformerFunction) {
     this._command = command;
   }
 
@@ -18,7 +26,7 @@ export class Instruction {
 
   public static create(
     input: string,
-    instructionSet: InstructionSet = DEFAULT_INSTRUCTION_SET
+    instructionSet: InstructionTable = DEFAULT_INSTRUCTION_TABLE
   ) {
     if (!Object.keys(instructionSet).includes(input)) {
       throw new Error("Invalid command");
