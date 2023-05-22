@@ -30,18 +30,14 @@ export class Grid {
     return availableOffsets.some((s) => s.x === x && s.y === y);
   }
 
-  private isOutOfBounds(x: number, y: number) {
+  private isWithinBoundaries(x: number, y: number) {
     const { xMin, xMax, yMin, yMax } = this.boundaries;
 
-    if (x >= xMin && x <= xMax && y >= yMin && y <= yMax) {
-      return false;
-    }
-
-    return true;
+    return x >= xMin && x <= xMax && y >= yMin && y <= yMax;
   }
 
   public validate(x: number, y: number) {
-    if (!this.isOutOfBounds(x, y)) {
+    if (this.isWithinBoundaries(x, y)) {
       return true;
     }
 
