@@ -67,4 +67,18 @@ describe("Robot", () => {
     expect(robot.position).toEqual({ x: 11, y: 10, d: 0 });
     expect(robot.isLost).toEqual(true);
   });
+
+  it("prevents further instructions from being executes when lost", () => {
+    const testGrid = new MockGrid(10, 10);
+    const testTransformer = jest.fn(() => ({ x: 11, y: 10, d: 0 }));
+    const testInstruction = jest
+      .fn()
+      .mockReturnValue({ command: testTransformer });
+    const robot = new Robot({ x: 0, y: 0, d: 0 }, testGrid, true);
+
+    robot.action(testInstruction());
+
+    expect(testTransformer).not.toHaveBeenCalled();
+    expect(robot.position).toEqual({ x: 0, y: 0, d: 0 });
+  });
 });

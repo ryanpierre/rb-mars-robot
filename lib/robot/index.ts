@@ -25,15 +25,19 @@ export class Robot {
   }
 
   public action(i: Instruction) {
-    const proposedPosition = i.command(this.position);
-    const { x, y } = proposedPosition;
+    if (this._isLost === true) {
+      return;
+    } else {
+      const proposedPosition = i.command(this.position);
+      const { x, y } = proposedPosition;
 
-    this._position = this.grid.validate(x, y)
-      ? proposedPosition
-      : this._position;
+      this._position = this.grid.validate(x, y)
+        ? proposedPosition
+        : this._position;
 
-    if (!this.grid.isWithinBoundaries(x, y)) {
-      this._isLost = true;
+      if (!this._grid.isWithinBoundaries(x, y)) {
+        this._isLost = true;
+      }
     }
   }
 }
