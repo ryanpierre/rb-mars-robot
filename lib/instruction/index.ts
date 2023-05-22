@@ -1,4 +1,4 @@
-import { Position } from "../grid";
+import { Position } from "../position";
 import type { TransformerFunction } from "../transformers";
 import {
   rotateClockwise,

@@ -1,6 +1,5 @@
 import { Robot } from ".";
-
-import { Grid, Position } from "../grid";
+import { Grid } from "../grid";
 
 jest.mock("../grid");
 

@@ -1,15 +1,4 @@
-export enum Direction {
-  N = 0,
-  E = 1,
-  S = 2,
-  W = 3,
-}
-
-export interface Position {
-  x: number;
-  y: number;
-  d: Direction;
-}
+import { Position } from "../position";
 
 export class Grid {
   private _xMax: number;

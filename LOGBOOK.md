@@ -49,9 +49,9 @@ It should ...
 ### Interpreter
 It should ...
 - take the first line of input and construct a grid
-- separates the remaining lines after the first into instruction pairs
-- takes the first line of an instruction pair and returns a Position
-- takes the second line of an instruction pair and returns an array of Instructions
+- separates the remaining lines after the first into instruction pairs (a position and a series of instructions)
+- take a grid and an instruction pair and return the resultant robot
+- take an input string and return an array of robots
 
 ### UI Manager
 It should....

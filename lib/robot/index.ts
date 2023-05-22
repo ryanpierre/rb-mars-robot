@@ -1,4 +1,5 @@
-import { Direction, Grid, Position } from "../grid";
+import { Grid } from "../grid";
+import { Direction, Position } from "../position";
 import { Instruction } from "../instruction";
 
 export const DEFAULT_DIRECTION_MAP: Record<Direction, string> = {
