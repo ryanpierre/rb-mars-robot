@@ -46,11 +46,15 @@ It should ...
 
 ### Interpreter
 It should ...
-- prompt a user for a set of input instructions
 - take the first line of input and construct a grid
 - separate the remaining lines after the first into an instruction pair
 - take the first line of an instruction pair and return a Position
 - take the second line of an instruction pair and return an array of Instructions
+
+### UI Manager
+It should....
+- prompt a user for a set of input instructions
+- output the resultant robot data from the user input
 
 ## Code Sessions Log
 - 15m Project Setup
