@@ -25,4 +25,16 @@ describe("Grid", () => {
 
     expect(grid.validate(3, 3)).toEqual(false);
   });
+
+  it("validates whether a given position is within the boundaries", () => {
+    const grid = new Grid(3, 2);
+
+    expect(grid.isWithinBoundaries(4, 2)).toEqual(false);
+  });
+
+  it("validates whether a given position is not within the boundaries", () => {
+    const grid = new Grid(3, 2);
+
+    expect(grid.isWithinBoundaries(3, 2)).toEqual(true);
+  });
 });
