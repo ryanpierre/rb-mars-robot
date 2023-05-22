@@ -1,11 +1,15 @@
-type Scent = { x: number; y: number };
+export interface Position {
+  x: number;
+  y: number;
+  d: number;
+}
 
 export class Grid {
   private _xMax: number;
   private _yMax: number;
-  private _scents: Scent[];
+  private _scents: Position[];
 
-  constructor(xMax: number, yMax: number, scents: Scent[] = []) {
+  constructor(xMax: number, yMax: number, scents: Position[] = []) {
     this._xMax = xMax;
     this._yMax = yMax;
     this._scents = scents;
@@ -19,7 +23,7 @@ export class Grid {
     return this._scents;
   }
 
-  private isAdjacentToScent(scent: Scent, x: number, y: number) {
+  private isAdjacentToScent(scent: Position, x: number, y: number) {
     const availableOffsets = [
       { x: scent.x, y: scent.y + 1 },
       { x: scent.x + 1, y: scent.y },

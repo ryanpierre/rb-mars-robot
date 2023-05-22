@@ -1,15 +1,10 @@
+import { Position } from "../grid";
 import type { TransformerFunction } from "../transformers";
 import {
   rotateClockwise,
   rotateCounterClockwise,
   moveForward,
 } from "../transformers";
-
-export interface Position {
-  x: number;
-  y: number;
-  d: number;
-}
 
 type InstructionTable = Record<string, TransformerFunction>;
 

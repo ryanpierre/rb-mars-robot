@@ -1,4 +1,4 @@
-import { Position } from "../instruction";
+import { Position } from "../grid";
 
 export type TransformerFunction = (p: Position) => Position;
 

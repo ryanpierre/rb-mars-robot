@@ -1,4 +1,5 @@
-import { Instruction, Position } from ".";
+import { Instruction } from ".";
+import { Position } from "../grid";
 
 describe("Instruction", () => {
   it("initialises with valid input", () => {
