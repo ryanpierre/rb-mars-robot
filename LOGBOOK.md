@@ -1,6 +1,6 @@
 # Logbook
 
-A collection of initial thoughts on design based upon the problem criteria that will inform my initial approach.
+A collection of initial thoughts on design based upon the problem criteria that will inform my initial approach, as well as the durations of my coding sessions to keep time.
 
 ## Design
 
@@ -51,3 +51,8 @@ It should ...
 - separate the remaining lines after the first into an instruction pair
 - take the first line of an instruction pair and return a Position
 - take the second line of an instruction pair and return an array of Instructions
+
+## Code Sessions Log
+- 15m Project Setup
+- 90m Code Session (Instruction, Transformer, Grid)
+- 30m Code Session (Grid, Robot)

@@ -17,7 +17,7 @@ describe("Instruction", () => {
       .mockImplementation((p: Position) => ({ ...p, x: p.x + 1 }));
     const instruction = Instruction.create("F", { F: testFn });
 
-    expect(instruction.apply({ x: 0, y: 0, d: 0 })).toEqual({
+    expect(instruction.command({ x: 0, y: 0, d: 0 })).toEqual({
       x: 1,
       y: 0,
       d: 0,

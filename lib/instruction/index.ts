@@ -25,10 +25,6 @@ export class Instruction {
     return this._command;
   }
 
-  public apply(p: Position) {
-    return this.command(p);
-  }
-
   public static create(
     input: string,
     instructionSet: InstructionTable = DEFAULT_INSTRUCTION_TABLE
