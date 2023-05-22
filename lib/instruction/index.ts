@@ -1,4 +1,4 @@
-interface Position {
+export interface Position {
   x: number;
   y: number;
   d: number;
@@ -22,6 +22,10 @@ export class Instruction {
 
   public get command() {
     return this._command;
+  }
+
+  public apply(p: Position) {
+    return this.command(p);
   }
 
   public static create(
