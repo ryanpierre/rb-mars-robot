@@ -81,4 +81,15 @@ describe("Robot", () => {
     expect(testTransformer).not.toHaveBeenCalled();
     expect(robot.position).toEqual({ x: 0, y: 0, d: 0 });
   });
+
+  it("serialises the current position as a string", () => {
+    const testGrid = new MockGrid(10, 10);
+    const robot = new Robot({ x: 1, y: 2, d: 3 }, testGrid);
+
+    expect(robot.status).toEqual("1 2 W");
+  });
+
+  it.todo(
+    "appends LOST to the current position when reported as a string and lost"
+  );
 });
