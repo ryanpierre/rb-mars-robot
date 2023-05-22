@@ -1,5 +1,6 @@
 import { Interpreter } from "./lib/interpreter";
-import { SAMPLE_DATA } from ".";
+
+const SAMPLE_DATA = `5 3\n1 1 E\nRFRFRFRF\n\n3 2 N\nFRRFLLFFRRFLL\n\n0 3 W\nLLFFFLFLFL`;
 
 describe("Main", () => {
   it("passes the sample integration test", () => {

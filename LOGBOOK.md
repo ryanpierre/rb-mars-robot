@@ -58,8 +58,12 @@ It should....
 - prompt a user for a set of input instructions
 - output the resultant robot data from the user input
 
-## Code Sessions Log
+## Code Sessions Log (on `main`)
 - 5m Project Setup
 - 90m Code Session (Planning, Instruction, Transformer, Grid)
 - 30m Code Session (Grid, Robot)
 - 20m Code Session (Robot)
+- 30m Code Session (Interpreter)
+
+## Code Sessions (on `completed` branch)
+- 40m Code Session (UI / Integration)

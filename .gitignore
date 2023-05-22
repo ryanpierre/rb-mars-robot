@@ -3,7 +3,7 @@ node_modules/
 .vscode/
 
 # Output dir
-./dist/
+dist/
 
 # MacOS
 ./**/.DS_STORE
