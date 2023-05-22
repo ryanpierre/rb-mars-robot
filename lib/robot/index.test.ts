@@ -23,8 +23,10 @@ describe("Robot", () => {
     const testInstruction = jest
       .fn()
       .mockReturnValue({ command: testTransformer });
+
     const robot = new Robot({ x: 0, y: 0, d: 0 }, testGrid);
 
+    testGrid.isWithinBoundaries = jest.fn(() => true);
     testGrid.validate = jest.fn().mockReturnValue(true);
 
     robot.action(testInstruction());
@@ -65,7 +67,7 @@ describe("Robot", () => {
 
     expect(testTransformer).toHaveBeenCalledWith({ x: 0, y: 0, d: 0 });
     expect(testGrid.addScent).toHaveBeenCalledWith({ x: 0, y: 0, d: 0 });
-    expect(robot.position).toEqual({ x: 11, y: 10, d: 0 });
+    expect(robot.position).toEqual({ x: 0, y: 0, d: 0 });
     expect(robot.isLost).toEqual(true);
   });
 
@@ -87,13 +89,13 @@ describe("Robot", () => {
     const testGrid = new MockGrid(10, 10);
     const robot = new Robot({ x: 1, y: 2, d: 3 }, testGrid);
 
-    expect(robot.status).toEqual("1 2 W");
+    expect(robot.printStatus()).toEqual("1 2 W");
   });
 
   it("appends LOST to the current position when reported as a string and lost", () => {
     const testGrid = new MockGrid(10, 10);
     const robot = new Robot({ x: 1, y: 2, d: 3 }, testGrid, true);
 
-    expect(robot.status).toEqual("1 2 W LOST");
+    expect(robot.printStatus()).toEqual("1 2 W LOST");
   });
 });

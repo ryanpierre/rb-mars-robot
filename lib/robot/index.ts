@@ -22,6 +22,7 @@ export class Robot {
 
   private lost(scent: Position) {
     this._isLost = true;
+    this._position = scent;
     this._grid.addScent(scent);
   }
 
@@ -37,7 +38,7 @@ export class Robot {
     return this._isLost;
   }
 
-  public get status() {
+  public printStatus() {
     const { x, y, d } = this._position;
     return `${x} ${y} ${DEFAULT_DIRECTION_MAP[d]}${
       this._isLost ? " LOST" : ""
@@ -48,15 +49,15 @@ export class Robot {
     if (this._isLost === true) {
       return;
     } else {
-      const proposedPosition = i.command(this.position);
+      const proposedPosition = i.command(this._position);
       const { x, y } = proposedPosition;
 
-      if (this.grid.validate(x, y)) {
+      if (this._grid.validate(x, y)) {
         if (!this._grid.isWithinBoundaries(x, y)) {
           this.lost(this._position);
+        } else {
+          this._position = proposedPosition;
         }
-
-        this._position = proposedPosition;
       }
     }
   }

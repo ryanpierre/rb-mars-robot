@@ -35,7 +35,7 @@ describe("Grid", () => {
   it("validates whether a given position is not within the boundaries", () => {
     const grid = new Grid(3, 2);
 
-    expect(grid.isWithinBoundaries(3, 2)).toEqual(true);
+    expect(grid.isWithinBoundaries(2, 1)).toEqual(true);
   });
 
   it("add new scents to the grid", () => {
