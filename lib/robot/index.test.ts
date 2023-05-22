@@ -89,7 +89,10 @@ describe("Robot", () => {
     expect(robot.status).toEqual("1 2 W");
   });
 
-  it.todo(
-    "appends LOST to the current position when reported as a string and lost"
-  );
+  it("appends LOST to the current position when reported as a string and lost", () => {
+    const testGrid = new MockGrid(10, 10);
+    const robot = new Robot({ x: 1, y: 2, d: 3 }, testGrid, true);
+
+    expect(robot.status).toEqual("1 2 W LOST");
+  });
 });

@@ -33,7 +33,9 @@ export class Robot {
 
   public get status() {
     const { x, y, d } = this._position;
-    return `${x} ${y} ${DEFAULT_DIRECTION_MAP[d]}`;
+    return `${x} ${y} ${DEFAULT_DIRECTION_MAP[d]}${
+      this._isLost ? " LOST" : ""
+    }`;
   }
 
   public action(i: Instruction) {
