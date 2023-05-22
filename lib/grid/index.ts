@@ -18,4 +18,33 @@ export class Grid {
   public get scents() {
     return this._scents;
   }
+
+  private isAdjacentToScent(scent: Scent, x: number, y: number) {
+    const availableOffsets = [
+      { x: scent.x, y: scent.y + 1 },
+      { x: scent.x + 1, y: scent.y },
+      { x: scent.x, y: scent.y - 1 },
+      { x: scent.x - 1, y: scent.y },
+    ];
+
+    return availableOffsets.some((s) => s.x === x && s.y === y);
+  }
+
+  private isOutOfBounds(x: number, y: number) {
+    const { xMin, xMax, yMin, yMax } = this.boundaries;
+
+    if (x >= xMin && x <= xMax && y >= yMin && y <= yMax) {
+      return false;
+    }
+
+    return true;
+  }
+
+  public validate(x: number, y: number) {
+    if (!this.isOutOfBounds(x, y)) {
+      return true;
+    }
+
+    return !this.scents.some((scent) => this.isAdjacentToScent(scent, x, y));
+  }
 }
