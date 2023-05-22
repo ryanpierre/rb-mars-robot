@@ -1,4 +1,5 @@
 import { Grid } from "../grid";
+import { Instruction } from "../instruction";
 import { getDirection } from "../position";
 
 export class Interpreter {
@@ -17,5 +18,9 @@ export class Interpreter {
     const direction = getDirection(d);
 
     return { x: parseInt(x, 10), y: parseInt(y, 10), d: direction };
+  }
+
+  public static parseInstructions(instructionsString: string) {
+    return instructionsString.split("").map((i) => Instruction.create(i));
   }
 }
