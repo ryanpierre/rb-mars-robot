@@ -57,6 +57,7 @@ It should....
 - output the resultant robot data from the user input
 
 ## Code Sessions Log
-- 15m Project Setup
-- 90m Code Session (Instruction, Transformer, Grid)
+- 5m Project Setup
+- 90m Code Session (Planning, Instruction, Transformer, Grid)
 - 30m Code Session (Grid, Robot)
+- 20m Code Session (Robot)
