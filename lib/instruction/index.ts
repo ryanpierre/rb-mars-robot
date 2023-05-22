@@ -1,10 +1,11 @@
+import type { TransformerFunction } from "../transformers";
+
 export interface Position {
   x: number;
   y: number;
   d: number;
 }
 
-type TransformerFunction = (p: Position) => Position;
 type InstructionTable = Record<string, TransformerFunction>;
 
 const DEFAULT_INSTRUCTION_TABLE: InstructionTable = {
